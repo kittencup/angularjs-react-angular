@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body ng-app="app">
+
+    <div ng-controller="Login as login">
+        <input type="text" ng-model="login.username" />
+        <input type="text" ng-model="login.password" />
+        <span ng-bind="login.username + login.password"></span>
+    </div>
+    <script src="../bower_components/angularjs/angular.min.js"></script>
+    <script src="index-good.js"></script>
+
+</body>
+</html>

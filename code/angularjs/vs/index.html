@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <style>
+        td{
+            padding:0!important;
+            text-align: center;
+        }
+        span{
+            display: block;
+            width: 100%;
+        }
+    </style>
+</head>
+<body ng-app="app">
+
+    <div ng-controller="tableController">
+        <div>
+            <div>
+                <button ng-show="!tr" ng-click="load()">加载</button>
+                <button ng-show="tr" ng-click="loadAll()">加载所有</button>
+            </div>
+
+            <div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tbody>
+                        <tr ng-repeat="n in range(0,tr)">
+                            <td ng-repeat="m in range(0,td)">
+                                <td-content m="m" n="n"></td-content>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../bower_components/angularjs/angular.min.js"></script>
+    <script src="index.js"></script>
+
+</body>
+</html>

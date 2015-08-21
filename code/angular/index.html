@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <title>Angular2 Example</title>
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"/>
+
+  <script src="/node_modules/traceur/bin/traceur.js"></script>
+  <script src="/node_modules/es6-module-loader/dist/es6-module-loader-sans-promises.js"></script>
+  <script src="/node_modules/systemjs/dist/system.js"></script>
+  <script src="/node_modules/zone.js/zone.js"></script>
+  <script src="/node_modules/zone.js/long-stack-trace-zone.js"></script>
+
+  <style>
+    td{
+      padding:0!important;
+      text-align: center;
+    }
+    td div{
+      display: block;
+      width: 100%;
+    }
+  </style>
+  <script>
+      // atscript without runtime-type assertions.
+      System.traceurOptions = {
+        annotations: true,
+        memberVariables: true,
+        typeAssertions: false,
+        types: true
+      };
+
+    System.config({
+      baseURL: '/',
+      paths: {
+        'angular2/*':'/node_modules/angular2/es6/prod/*.es6',
+        'app/*': 'app/*',
+        'components/*': 'app/components/*.js',
+        'decorators/*': 'app/decorators/*.js',
+        'services/*': 'app/services/*.js',
+        'stores/*': 'app/stores/*.js'
+      },
+    });
+
+    System.import('app/app.js')
+    .then(function(module) {
+      // uncomment for debugging.
+      // zone = zone.fork(Zone.longStackTraceZone);
+      return module.main();
+    })
+    .catch(console.error.bind(console));
+  </script>
+</head>
+<body>
+
+  <calendar></calendar>
+
+</body>
+</html>

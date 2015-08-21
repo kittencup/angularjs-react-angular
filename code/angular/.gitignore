@@ -1,0 +1,5 @@
+.DS_Store
+/deps/ng
+Todo.md
+node_modules/
+.*.sw*

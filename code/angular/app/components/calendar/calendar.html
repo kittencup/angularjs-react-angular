@@ -1,0 +1,13 @@
+
+
+<div class="calendar" class="table-responsive">
+ <button class="btn" *if="!isLoaded" (click)="load()">加载</button>
+ <button class="btn" *if="isLoaded"  (click)="searchAll()">加载所有</button>
+ <table *if="isLoaded" class="table table-bordered">
+  <tr template="foreach: #hour in hours">
+   <td template="foreach: #day in days" class="hour-cell">
+     <calendar-cell />
+   </td>
+  </tr>
+ </table>
+</div>
